@@ -29,3 +29,4 @@ jobs:
              github_token: ${{secrets.GITHUB_TOKEN}}
              folder: docs
              branch: gh-pages
+             clean: true
