@@ -1,0 +1,31 @@
+name: Generate Documentation & Deploy To Gh-Pages
+
+on:
+  # push:
+    # branches:
+   
+  workflow_dispatch:
+permissions:
+  contents: write
+
+jobs:
+  GenerateDocumentation:
+    name: Checkout and Generate Docs
+    runs-on: ubuntu-latest
+    steps:
+       - name: Checkout repo
+         uses: actions/checkout@v2
+       - name: Install Doxygen
+         run: sudo apt-get install doxygen -y
+         shell: bash
+       - name: Generate Doxyconfig
+         run: doxygen -g
+       - name: Run Doxygen
+         run: ( cat Doxyfile ; echo "OUTPUT_DIRECTORY="docs"" ; echo "PROJECT_NAME="QTE System"" ; echo "INPUT="Assets/Scripts"" ; echo "RECURSIVE=YES" ; GENERATE_TREEVIEW = YES) | doxygen -
+     
+       - name: Deployment
+         uses: JamesIves/github-pages-deploy-action@v4
+         with:
+             github_token: ${{secrets.GITHUB_TOKEN}}
+             folder: docs
+             branch: gh-pages

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30039a14a47629d48a8f31f44af10451, type: 3}
+  m_Name: QTEData_TimedButtonPress_ConcurrentButtons
+  m_EditorClassIdentifier: 
+  EventName: Test_01
+  EventDescription: Start after 2 seconds, quick time button press window is 5 seconds
+  EventStartDelay: 2
+  EventTimer: 5
+  ControlPath:
+  - <Keyboard>/q
+  - <Keyboard>/e
+  ConcurrentInputBuffer: 0.35
