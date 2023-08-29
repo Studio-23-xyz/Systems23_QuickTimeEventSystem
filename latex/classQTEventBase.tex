@@ -1,0 +1,138 @@
+\hypertarget{classQTEventBase}{}\doxysection{QTEvent\+Base Class Reference}
+\label{classQTEventBase}\index{QTEventBase@{QTEventBase}}
+
+
+Inheritance diagram for QTEvent\+Base\+:
+% FIG 0
+
+
+Collaboration diagram for QTEvent\+Base\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQTEventBase_a7c1ce9c5f330579852227a6019dc2587}\label{classQTEventBase_a7c1ce9c5f330579852227a6019dc2587}} 
+delegate void {\bfseries QTEvent} ()
+\item 
+virtual async Uni\+Task \mbox{\hyperlink{classQTEventBase_ab40bb09d1bb8310c690cdb5f5518610b}{Begin\+Event}} (\mbox{\hyperlink{classQTEManager}{QTEManager}} qte\+Manager)
+\begin{DoxyCompactList}\small\item\em Responsible for initiating and setting up the QTE. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQTEventBase_aec374693476ce236bac695bed2ae0c92}\label{classQTEventBase_aec374693476ce236bac695bed2ae0c92}} 
+virtual void {\bfseries End\+Event} ()
+\item 
+\mbox{\Hypertarget{classQTEventBase_a682ea24d0be6808a33837c3dc35db263}\label{classQTEventBase_a682ea24d0be6808a33837c3dc35db263}} 
+virtual void {\bfseries Successful\+Event\+Completion} ()
+\item 
+\mbox{\Hypertarget{classQTEventBase_a17b71d55459b1c006dfa9f2729eb4234}\label{classQTEventBase_a17b71d55459b1c006dfa9f2729eb4234}} 
+virtual void {\bfseries Event\+Failure} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QTEvent \mbox{\hyperlink{classQTEventBase_a8ad2818573833d4406c13ca8ead0040d}{On\+QTEPreparation}}
+\begin{DoxyCompactList}\small\item\em This is the prep event call for any Quick\+Time\+Event. This is called when a QT-\/\+Event is started. It handles the delays and the initial setups related to that QT. \end{DoxyCompactList}\item 
+QTEvent \mbox{\hyperlink{classQTEventBase_af1a8185309abb2a9cd0186fb7a3080a3}{On\+QTEStart}}
+\begin{DoxyCompactList}\small\item\em Invoked when the timeframe for keypress check is started. \end{DoxyCompactList}\item 
+QTEvent \mbox{\hyperlink{classQTEventBase_ae5587dff5dc07460d92c27402dac7339}{On\+QTEEnd}}
+\begin{DoxyCompactList}\small\item\em Invoked when a button is pressed or timeframe for button press has passed. \end{DoxyCompactList}\item 
+QTEvent \mbox{\hyperlink{classQTEventBase_af63641719c9a57c1b52a9f382b116be9}{On\+QTECompleted}}
+\begin{DoxyCompactList}\small\item\em Invoked when the entire QTE Sequence has completed with a success or failure result. \end{DoxyCompactList}\item 
+QTEvent \mbox{\hyperlink{classQTEventBase_a4ee3aca78a1b720ebadd7c2cd925e6e4}{On\+QTESuccess}}
+\begin{DoxyCompactList}\small\item\em Invoked upon being successful on the QTE \end{DoxyCompactList}\item 
+QTEvent \mbox{\hyperlink{classQTEventBase_afa085eeeaeb765dafeeb53e92385271a}{On\+QTEFailure}}
+\begin{DoxyCompactList}\small\item\em Invoked upon failing the QTE \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQTEventBase_a4ee2f213360ed47aeaa32e9ce6c9edd4}\label{classQTEventBase_a4ee2f213360ed47aeaa32e9ce6c9edd4}} 
+\mbox{\hyperlink{classQTEDataSO}{QTEData\+SO}} {\bfseries QTEData}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classQTEventBase_ab40bb09d1bb8310c690cdb5f5518610b}\label{classQTEventBase_ab40bb09d1bb8310c690cdb5f5518610b}} 
+\index{QTEventBase@{QTEventBase}!BeginEvent@{BeginEvent}}
+\index{BeginEvent@{BeginEvent}!QTEventBase@{QTEventBase}}
+\doxysubsubsection{\texorpdfstring{BeginEvent()}{BeginEvent()}}
+{\footnotesize\ttfamily virtual async Uni\+Task QTEvent\+Base.\+Begin\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQTEManager}{QTEManager}}}]{qte\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Responsible for initiating and setting up the QTE. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em qte\+Manager} & \mbox{\hyperlink{classQTEManager}{QTEManager}} is passed in here to do necessary function runs and changes down time line.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classQTE__TimedButtonPress_affa0a554d5bce53b785225f9b40af791}{QTE\+\_\+\+Timed\+Button\+Press}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classQTEventBase_af63641719c9a57c1b52a9f382b116be9}\label{classQTEventBase_af63641719c9a57c1b52a9f382b116be9}} 
+\index{QTEventBase@{QTEventBase}!OnQTECompleted@{OnQTECompleted}}
+\index{OnQTECompleted@{OnQTECompleted}!QTEventBase@{QTEventBase}}
+\doxysubsubsection{\texorpdfstring{OnQTECompleted}{OnQTECompleted}}
+{\footnotesize\ttfamily QTEvent QTEvent\+Base.\+On\+QTECompleted}
+
+
+
+Invoked when the entire QTE Sequence has completed with a success or failure result. 
+
+\mbox{\Hypertarget{classQTEventBase_ae5587dff5dc07460d92c27402dac7339}\label{classQTEventBase_ae5587dff5dc07460d92c27402dac7339}} 
+\index{QTEventBase@{QTEventBase}!OnQTEEnd@{OnQTEEnd}}
+\index{OnQTEEnd@{OnQTEEnd}!QTEventBase@{QTEventBase}}
+\doxysubsubsection{\texorpdfstring{OnQTEEnd}{OnQTEEnd}}
+{\footnotesize\ttfamily QTEvent QTEvent\+Base.\+On\+QTEEnd}
+
+
+
+Invoked when a button is pressed or timeframe for button press has passed. 
+
+\mbox{\Hypertarget{classQTEventBase_afa085eeeaeb765dafeeb53e92385271a}\label{classQTEventBase_afa085eeeaeb765dafeeb53e92385271a}} 
+\index{QTEventBase@{QTEventBase}!OnQTEFailure@{OnQTEFailure}}
+\index{OnQTEFailure@{OnQTEFailure}!QTEventBase@{QTEventBase}}
+\doxysubsubsection{\texorpdfstring{OnQTEFailure}{OnQTEFailure}}
+{\footnotesize\ttfamily QTEvent QTEvent\+Base.\+On\+QTEFailure}
+
+
+
+Invoked upon failing the QTE 
+
+\mbox{\Hypertarget{classQTEventBase_a8ad2818573833d4406c13ca8ead0040d}\label{classQTEventBase_a8ad2818573833d4406c13ca8ead0040d}} 
+\index{QTEventBase@{QTEventBase}!OnQTEPreparation@{OnQTEPreparation}}
+\index{OnQTEPreparation@{OnQTEPreparation}!QTEventBase@{QTEventBase}}
+\doxysubsubsection{\texorpdfstring{OnQTEPreparation}{OnQTEPreparation}}
+{\footnotesize\ttfamily QTEvent QTEvent\+Base.\+On\+QTEPreparation}
+
+
+
+This is the prep event call for any Quick\+Time\+Event. This is called when a QT-\/\+Event is started. It handles the delays and the initial setups related to that QT. 
+
+\mbox{\Hypertarget{classQTEventBase_af1a8185309abb2a9cd0186fb7a3080a3}\label{classQTEventBase_af1a8185309abb2a9cd0186fb7a3080a3}} 
+\index{QTEventBase@{QTEventBase}!OnQTEStart@{OnQTEStart}}
+\index{OnQTEStart@{OnQTEStart}!QTEventBase@{QTEventBase}}
+\doxysubsubsection{\texorpdfstring{OnQTEStart}{OnQTEStart}}
+{\footnotesize\ttfamily QTEvent QTEvent\+Base.\+On\+QTEStart}
+
+
+
+Invoked when the timeframe for keypress check is started. 
+
+\mbox{\Hypertarget{classQTEventBase_a4ee3aca78a1b720ebadd7c2cd925e6e4}\label{classQTEventBase_a4ee3aca78a1b720ebadd7c2cd925e6e4}} 
+\index{QTEventBase@{QTEventBase}!OnQTESuccess@{OnQTESuccess}}
+\index{OnQTESuccess@{OnQTESuccess}!QTEventBase@{QTEventBase}}
+\doxysubsubsection{\texorpdfstring{OnQTESuccess}{OnQTESuccess}}
+{\footnotesize\ttfamily QTEvent QTEvent\+Base.\+On\+QTESuccess}
+
+
+
+Invoked upon being successful on the QTE 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Quick\+Time\+Event System/QTEvent\+Base.\+cs\end{DoxyCompactItemize}

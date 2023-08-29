@@ -1,0 +1,85 @@
+\hypertarget{classQTEDataSO}{}\doxysection{QTEData\+SO Class Reference}
+\label{classQTEDataSO}\index{QTEDataSO@{QTEDataSO}}
+
+
+Scriptable object containing data about the Quick\+Time Event such as name, dsc, delay, time limit and expected inputs.  
+
+
+
+
+Inheritance diagram for QTEData\+SO\+:
+% FIG 0
+
+
+Collaboration diagram for QTEData\+SO\+:
+% FIG 1
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQTEDataSO_a4efcb37d9ed10d9fb2a24fbfaf9cd123}\label{classQTEDataSO_a4efcb37d9ed10d9fb2a24fbfaf9cd123}} 
+string {\bfseries Event\+Name}
+\item 
+\mbox{\Hypertarget{classQTEDataSO_a5853677164ecbc73f40723f70d6b05a8}\label{classQTEDataSO_a5853677164ecbc73f40723f70d6b05a8}} 
+string {\bfseries Event\+Description}
+\item 
+float \mbox{\hyperlink{classQTEDataSO_a9690e228205a255adb53b74eee4e0830}{Event\+Start\+Delay}}
+\begin{DoxyCompactList}\small\item\em Used if the event should be delayed for set amount of time before starting to listen for inputs from player. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classQTEDataSO_a124e42450740fe6f271cbdc7d6068083}{Event\+Timer}}
+\begin{DoxyCompactList}\small\item\em Used to determine how long should the event be alive for and listen to player inputs. \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{classQTEDataSO_a761b0138c9d000b188cbb1fc35ac96a2}{Control\+Path}}
+\begin{DoxyCompactList}\small\item\em A list of expected controls that the player must press in order to succeed in the QTE. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classQTEDataSO_a13a21887377cc9afa516a16d47c9c4f0}{Concurrent\+Input\+Buffer}} = 0f
+\begin{DoxyCompactList}\small\item\em In case this QTE expected multiple player inputs in very quick succession, we set a buffer timer within which the player must press rest of the buttons after the first button press. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Scriptable object containing data about the Quick\+Time Event such as name, dsc, delay, time limit and expected inputs. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classQTEDataSO_a13a21887377cc9afa516a16d47c9c4f0}\label{classQTEDataSO_a13a21887377cc9afa516a16d47c9c4f0}} 
+\index{QTEDataSO@{QTEDataSO}!ConcurrentInputBuffer@{ConcurrentInputBuffer}}
+\index{ConcurrentInputBuffer@{ConcurrentInputBuffer}!QTEDataSO@{QTEDataSO}}
+\doxysubsubsection{\texorpdfstring{ConcurrentInputBuffer}{ConcurrentInputBuffer}}
+{\footnotesize\ttfamily float QTEData\+SO.\+Concurrent\+Input\+Buffer = 0f}
+
+
+
+In case this QTE expected multiple player inputs in very quick succession, we set a buffer timer within which the player must press rest of the buttons after the first button press. 
+
+\mbox{\Hypertarget{classQTEDataSO_a761b0138c9d000b188cbb1fc35ac96a2}\label{classQTEDataSO_a761b0138c9d000b188cbb1fc35ac96a2}} 
+\index{QTEDataSO@{QTEDataSO}!ControlPath@{ControlPath}}
+\index{ControlPath@{ControlPath}!QTEDataSO@{QTEDataSO}}
+\doxysubsubsection{\texorpdfstring{ControlPath}{ControlPath}}
+{\footnotesize\ttfamily List$<$string$>$ QTEData\+SO.\+Control\+Path}
+
+
+
+A list of expected controls that the player must press in order to succeed in the QTE. 
+
+\mbox{\Hypertarget{classQTEDataSO_a9690e228205a255adb53b74eee4e0830}\label{classQTEDataSO_a9690e228205a255adb53b74eee4e0830}} 
+\index{QTEDataSO@{QTEDataSO}!EventStartDelay@{EventStartDelay}}
+\index{EventStartDelay@{EventStartDelay}!QTEDataSO@{QTEDataSO}}
+\doxysubsubsection{\texorpdfstring{EventStartDelay}{EventStartDelay}}
+{\footnotesize\ttfamily float QTEData\+SO.\+Event\+Start\+Delay}
+
+
+
+Used if the event should be delayed for set amount of time before starting to listen for inputs from player. 
+
+\mbox{\Hypertarget{classQTEDataSO_a124e42450740fe6f271cbdc7d6068083}\label{classQTEDataSO_a124e42450740fe6f271cbdc7d6068083}} 
+\index{QTEDataSO@{QTEDataSO}!EventTimer@{EventTimer}}
+\index{EventTimer@{EventTimer}!QTEDataSO@{QTEDataSO}}
+\doxysubsubsection{\texorpdfstring{EventTimer}{EventTimer}}
+{\footnotesize\ttfamily float QTEData\+SO.\+Event\+Timer}
+
+
+
+Used to determine how long should the event be alive for and listen to player inputs. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Quick\+Time\+Event System/QTEData\+SO.\+cs\end{DoxyCompactItemize}

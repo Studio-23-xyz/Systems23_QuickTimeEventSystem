@@ -1,0 +1,70 @@
+\hypertarget{classQTEManager}{}\doxysection{QTEManager Class Reference}
+\label{classQTEManager}\index{QTEManager@{QTEManager}}
+
+
+Inheritance diagram for QTEManager\+:
+% FIG 0
+
+
+Collaboration diagram for QTEManager\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQTEManager_a48ddfb5f24e3d5a10f61dbc18af7d4ab}\label{classQTEManager_a48ddfb5f24e3d5a10f61dbc18af7d4ab}} 
+async void {\bfseries Debug\+QTEExecution} ()
+\item 
+async void \mbox{\hyperlink{classQTEManager_a3639bf4cd979336c237f953181579e4a}{Execute\+Event}} (\mbox{\hyperlink{classQTEventBase}{QTEvent\+Base}} event\+To\+Execute)
+\begin{DoxyCompactList}\small\item\em Takes in a Quick\+Time\+Event Base and starts the event. If an event is ongoing, the event that is passed will be queued for execution upon completion of the current event. \end{DoxyCompactList}\item 
+async Uni\+Task$<$ List$<$ string $>$ $>$ \mbox{\hyperlink{classQTEManager_afb38df62f8f98e4af6b9041dbb56d493}{Check\+For\+Quick\+Time\+Input}} (\mbox{\hyperlink{classQTEDataSO}{QTEData\+SO}} QTEData)
+\begin{DoxyCompactList}\small\item\em QTE Data is passed in this function, while the function reads inputs from user throughout the QTE timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQTEManager_a70097c4083626df4fe44dd445fa28c5c}\label{classQTEManager_a70097c4083626df4fe44dd445fa28c5c}} 
+\mbox{\hyperlink{classQTEventBase}{QTEvent\+Base}} {\bfseries Current\+Event}
+\item 
+\mbox{\Hypertarget{classQTEManager_ab7c978a19ba94c275774fb395b876721}\label{classQTEManager_ab7c978a19ba94c275774fb395b876721}} 
+string {\bfseries Last\+Input\+Device}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classQTEManager_afb38df62f8f98e4af6b9041dbb56d493}\label{classQTEManager_afb38df62f8f98e4af6b9041dbb56d493}} 
+\index{QTEManager@{QTEManager}!CheckForQuickTimeInput@{CheckForQuickTimeInput}}
+\index{CheckForQuickTimeInput@{CheckForQuickTimeInput}!QTEManager@{QTEManager}}
+\doxysubsubsection{\texorpdfstring{CheckForQuickTimeInput()}{CheckForQuickTimeInput()}}
+{\footnotesize\ttfamily async Uni\+Task$<$List$<$string$>$ $>$ QTEManager.\+Check\+For\+Quick\+Time\+Input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQTEDataSO}{QTEData\+SO}}}]{QTEData }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+QTE Data is passed in this function, while the function reads inputs from user throughout the QTE timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em QTEData} & Scriptable Object containing various data regarding the QTE\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the player presses the number of buttons expected for this QTE the function returns a List of string that is formatted with the input device name for validating if correct inputs were pressed or not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQTEManager_a3639bf4cd979336c237f953181579e4a}\label{classQTEManager_a3639bf4cd979336c237f953181579e4a}} 
+\index{QTEManager@{QTEManager}!ExecuteEvent@{ExecuteEvent}}
+\index{ExecuteEvent@{ExecuteEvent}!QTEManager@{QTEManager}}
+\doxysubsubsection{\texorpdfstring{ExecuteEvent()}{ExecuteEvent()}}
+{\footnotesize\ttfamily async void QTEManager.\+Execute\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQTEventBase}{QTEvent\+Base}}}]{event\+To\+Execute }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Takes in a Quick\+Time\+Event Base and starts the event. If an event is ongoing, the event that is passed will be queued for execution upon completion of the current event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event\+To\+Execute} & QTEEvent Base containing QTE parameters and required inputs that will be handled by rest of the components.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Quick\+Time\+Event System/QTEManager.\+cs\end{DoxyCompactItemize}
