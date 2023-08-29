@@ -21,7 +21,7 @@ jobs:
        - name: Generate Doxyconfig
          run: doxygen -g
        - name: Run Doxygen
-         run: ( cat Doxyfile ; echo "OUTPUT_DIRECTORY="docs"" ; echo "PROJECT_NAME="QTE System"" ; echo "INPUT="Assets/Scripts"" ; echo "RECURSIVE=YES" ; GENERATE_TREEVIEW = YES) | doxygen -
+         run: ( cat Doxyfile ; echo "OUTPUT_DIRECTORY="docs"" ; echo "PROJECT_NAME="QTE System"" ; echo "INPUT="Assets/Scripts"" ; echo "RECURSIVE=YES" ; "GENERATE_TREEVIEW = YES") | doxygen -
      
        - name: Deployment
          uses: JamesIves/github-pages-deploy-action@v4
