@@ -15,13 +15,22 @@ public class QTEManager : MonoBehaviour
 		ExecuteEvent(CurrentEvent);
 	}
 
+	/// <summary>
+	/// Takes in a QuickTimeEvent Base and starts the event. If an event is ongoing, the event that is passed will be queued for execution upon completion of the current event.
+	/// </summary>
+	/// <param name="eventToExecute">QTEEvent Base containing QTE parameters and required inputs that will be handled by rest of the components.</param>
 	public async void ExecuteEvent(QTEventBase eventToExecute)
 	{
 		CurrentEvent = eventToExecute;
 		await CurrentEvent.BeginEvent(this);
-		//await UniTask.WaitUntil(() => CurrentEvent.BeginEvent() == true);
 	}
 
+	/// <summary>
+	/// QTE Data is passed in this function, while the function reads inputs from user throughout the QTE timer. 
+	/// </summary>
+	/// <param name="QTEData">Scriptable Object containing various data regarding the QTE</param>
+	/// <returns>If the player presses the number of buttons expected for this QTE the function returns a List of string that is formatted
+	/// with the input device name for validating if correct inputs were pressed or not. </returns>
 	public async UniTask<List<string>> CheckForQuickTimeInput(QTEDataSO QTEData)
 	{
 		int buttonsPressed = 0;

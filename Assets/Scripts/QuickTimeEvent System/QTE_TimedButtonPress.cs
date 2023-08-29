@@ -12,7 +12,11 @@ public class QTE_TimedButtonPress : QTEventBase
 		CheckQTEInput(quickTimeInput);
 	}
 
-	public void CheckQTEInput(List<string> quickTimeInputs)
+	/// <summary>
+	/// Crosschecks player inputs received as function parameter with the expected inputs found in the QTEData Scriptable Object to determine if the QTE was successful or not.
+	/// </summary>
+	/// <param name="quickTimeInputs">A list formatted strings with their input device is passed here for validation.</param>
+	private void CheckQTEInput(List<string> quickTimeInputs)
 	{
 		if (quickTimeInputs.Count < QTEData.ControlPath.Count)
 		{

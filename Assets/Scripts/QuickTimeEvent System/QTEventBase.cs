@@ -7,7 +7,7 @@ public class QTEventBase : ScriptableObject
 {
 	public delegate void QTEvent();
 	/// <summary>
-	/// 
+	/// This is the prep event call for any QuickTimeEvent. This is called when a QT-Event is started. It handles the delays and the initial setups related to that QT.
 	/// </summary>
 	public QTEvent OnQTEPreparation;
 	/// <summary>
@@ -33,6 +33,11 @@ public class QTEventBase : ScriptableObject
 
 	[Expandable] public QTEDataSO QTEData;
 
+	/// <summary>
+	/// Responsible for initiating and setting up the QTE.
+	/// </summary>
+	/// <param name="qteManager">QTEManager is passed in here to do necessary function runs and changes down time line.</param>
+	/// <returns></returns>
 	public virtual async UniTask BeginEvent(QTEManager qteManager)
 	{
 		if (QTEData == null)
