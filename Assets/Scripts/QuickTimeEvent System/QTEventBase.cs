@@ -2,16 +2,20 @@ using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using System;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class QTEventBase : ScriptableObject
 {
 	public delegate void QTEvent();
+	public delegate QTEDataSO QTEventWithData();
+
+	public delegate bool QTEventBool();
 	/// <summary>
 	/// This is the prep event call for any QuickTimeEvent. This is called when a QT-Event is started. It handles the delays and the initial setups related to that QT.
 	/// </summary>
-	public QTEvent OnQTEPreparation;
+	public QTEventWithData OnQTEPreparation;
 	/// <summary>
-	/// Invoked when the timeframe for keypress check is started.
+	/// Invoked when the time-frame for keypress check is started.
 	/// </summary>
 	public QTEvent OnQTEStart;
 	/// <summary>
@@ -47,6 +51,8 @@ public class QTEventBase : ScriptableObject
 			await UniTask.NextFrame();
 		}
 
+		
+
 		Debug.Log($"QTE Data found, starting QTE");
 
 		if (QTEData.EventStartDelay != 0f)
@@ -55,12 +61,14 @@ public class QTEventBase : ScriptableObject
 			await UniTask.Delay(TimeSpan.FromSeconds(QTEData.EventStartDelay));
 		}
 
+		OnQTEStart?.Invoke();
+
 		Debug.Log($"Delay time passed");
 	}
 
 	public virtual void EndEvent()
 	{
-
+		OnQTEEnd?.Invoke();
 	}
 
 	public virtual void SuccessfulEventCompletion()

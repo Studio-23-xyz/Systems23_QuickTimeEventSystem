@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.InputSystem.Utilities;
 
 public class QTEManager : MonoBehaviour
 {
+	public QTE_TestUI TestUIController;
 	public QTEventBase CurrentEvent;
 	public string LastInputDevice;
 
@@ -22,6 +24,7 @@ public class QTEManager : MonoBehaviour
 	public async void ExecuteEvent(QTEventBase eventToExecute)
 	{
 		CurrentEvent = eventToExecute;
+		//TestUIController.SetQTEPreparation(CurrentEvent.QTEData, this);
 		await CurrentEvent.BeginEvent(this);
 	}
 
@@ -38,9 +41,14 @@ public class QTEManager : MonoBehaviour
 		string quickTimeInput = string.Empty;
 		var inputReader = InputSystem.onAnyButtonPress.Call(quickTimePress =>
 		{
+			if (!QTEData.ControlPath.Contains($"<{quickTimePress.device.name}>/{quickTimePress.name}"))
+			{
+				buttonsPressed = 100;
+				Debug.Log($"<color=#ff2626>Mismatched QTE input detected. Failing QTE</color>");
+			}
 			if (!quickTimeInputs.Contains($"<{quickTimePress.device.name}>/{quickTimePress.name}"))
 			{
-				Debug.Log($"Button pressed <color=#f426ff> {quickTimePress.name} </color> from device = {quickTimePress.device}");
+				Debug.Log($"Button pressed <color=#f426ff> {quickTimePress.name} </color> from device = {quickTimePress.device.name}");
 				quickTimeInputs.Add($"<{quickTimePress.device.name}>/{quickTimePress.name}");
 				LastInputDevice = quickTimePress.device.name;
 				buttonsPressed++;
@@ -59,6 +67,7 @@ public class QTEManager : MonoBehaviour
 				{
 					inputReader.Dispose();
 					Debug.Log($"<color=#75ff9a>Buffer time elapse, QTE failing</color>");
+					//TestUIController.QTEInputReceived = true;
 					return quickTimeInputs;
 				}
 				quickTimeInputs.Clear();
@@ -70,6 +79,8 @@ public class QTEManager : MonoBehaviour
 			await UniTask.Yield();
 			await UniTask.NextFrame();
 		}
+
+		//TestUIController.QTEInputReceived = true;
 
 		Debug.Log($"QTE Input found, cross-checking input");
 		inputReader.Dispose();

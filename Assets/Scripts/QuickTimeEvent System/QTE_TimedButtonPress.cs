@@ -8,8 +8,9 @@ public class QTE_TimedButtonPress : QTEventBase
 	public override async UniTask BeginEvent(QTEManager qteManager)
 	{
 		await base.BeginEvent(qteManager);
-		var quickTimeInput = await qteManager.CheckForQuickTimeInput(QTEData);
-		CheckQTEInput(quickTimeInput);
+		//qteManager.TestUIController.StartQTE(QTEData);
+		//var quickTimeInput = await qteManager.CheckForQuickTimeInput(QTEData);
+		//CheckQTEInput(quickTimeInput);
 	}
 
 	/// <summary>
@@ -18,9 +19,10 @@ public class QTE_TimedButtonPress : QTEventBase
 	/// <param name="quickTimeInputs">A list formatted strings with their input device is passed here for validation.</param>
 	private void CheckQTEInput(List<string> quickTimeInputs)
 	{
-		if (quickTimeInputs.Count < QTEData.ControlPath.Count)
+		if (quickTimeInputs.Count != QTEData.ControlPath.Count)
 		{
 			OnQTEFailure?.Invoke();
+			base.EndEvent();
 			Debug.Log($"<color=#ff2626>QTE failed due to insufficient inputs.</color>");
 			return;
 		}
@@ -43,6 +45,7 @@ public class QTE_TimedButtonPress : QTEventBase
 			OnQTESuccess?.Invoke();
 			Debug.Log($"<color=#75ff9a>QTE success</color>");
 		}
+		base.EndEvent();
 	}
 
 	public override void EndEvent()

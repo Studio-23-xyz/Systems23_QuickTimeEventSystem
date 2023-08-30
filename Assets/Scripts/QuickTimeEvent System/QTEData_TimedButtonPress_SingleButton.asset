@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EventName: Test_01
   EventDescription: Start after 2 seconds, quick time button press window is 5 seconds
-  EventStartDelay: 2
+  EventStartDelay: 3
   EventTimer: 5
   ControlPath:
   - <Keyboard>/w

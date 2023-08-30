@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: QTEData_TimedButtonPress_ConcurrentButtons
   m_EditorClassIdentifier: 
   EventName: Test_01
-  EventDescription: Start after 2 seconds, quick time button press window is 5 seconds
+  EventDescription: 'Start after 2 seconds, quick time button press window is 5 seconds.
+    The second button press must be inputted before 0.35 seconds. '
   EventStartDelay: 2
   EventTimer: 5
   ControlPath:
