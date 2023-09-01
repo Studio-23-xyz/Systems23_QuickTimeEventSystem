@@ -28,7 +28,7 @@ public class QTE_TestUI : MonoBehaviour
 
 		qteManager.CurrentEvent.OnQTESuccess += OnQteSuccess;
 		qteManager.CurrentEvent.OnQTEFailure += OnQteFailure;
-		qteManager.CurrentEvent.OnQTEEnd += EndQTE;
+		qteManager.CurrentEvent.OnQTECompleted += EndQTE;
 		//float timer = 0f;
 		//float factor = 0f;
 		//TimeBar.fillAmount = 1f;

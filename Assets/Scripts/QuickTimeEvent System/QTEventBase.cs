@@ -68,6 +68,7 @@ public class QTEventBase : ScriptableObject
 
 	public virtual void EndEvent()
 	{
+		Debug.Log($"OnEnd Invoked");
 		OnQTEEnd?.Invoke();
 	}
 

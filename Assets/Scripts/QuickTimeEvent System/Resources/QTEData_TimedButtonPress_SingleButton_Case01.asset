@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30039a14a47629d48a8f31f44af10451, type: 3}
-  m_Name: QTEData_TimedButtonPress_SingleButton
+  m_Name: QTEData_TimedButtonPress_SingleButton_Case01
   m_EditorClassIdentifier: 
   EventName: Test_01
   EventDescription: Start after 2 seconds, quick time button press window is 5 seconds

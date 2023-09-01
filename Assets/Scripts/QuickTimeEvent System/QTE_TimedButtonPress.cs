@@ -9,8 +9,8 @@ public class QTE_TimedButtonPress : QTEventBase
 	{
 		await base.BeginEvent(qteManager);
 		//qteManager.TestUIController.StartQTE(QTEData);
-		//var quickTimeInput = await qteManager.CheckForQuickTimeInput(QTEData);
-		//CheckQTEInput(quickTimeInput);
+		var quickTimeInput = await qteManager.CheckForQuickTimeInput(QTEData);
+		CheckQTEInput(quickTimeInput);
 	}
 
 	/// <summary>
@@ -22,8 +22,8 @@ public class QTE_TimedButtonPress : QTEventBase
 		if (quickTimeInputs.Count != QTEData.ControlPath.Count)
 		{
 			OnQTEFailure?.Invoke();
-			base.EndEvent();
 			Debug.Log($"<color=#ff2626>QTE failed due to insufficient inputs.</color>");
+			EndEvent();
 			return;
 		}
 
@@ -36,6 +36,8 @@ public class QTE_TimedButtonPress : QTEventBase
 			{
 				allMatched = false;
 				Debug.Log($"<color=#ff2626>QTE failed due to input mismatch on {quickTimeInput}.</color>");
+				OnQTEFailure?.Invoke();
+				EndEvent();
 				break;
 			}
 		}
@@ -45,12 +47,8 @@ public class QTE_TimedButtonPress : QTEventBase
 			OnQTESuccess?.Invoke();
 			Debug.Log($"<color=#75ff9a>QTE success</color>");
 		}
-		base.EndEvent();
-	}
 
-	public override void EndEvent()
-	{
-		//throw new System.NotImplementedException();
+		EndEvent();
 	}
 
 	public override void SuccessfulEventCompletion()

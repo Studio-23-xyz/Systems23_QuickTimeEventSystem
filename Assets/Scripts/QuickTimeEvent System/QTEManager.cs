@@ -1,5 +1,5 @@
-using System;
 using Cysharp.Threading.Tasks;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +10,10 @@ public class QTEManager : MonoBehaviour
 	public QTE_TestUI TestUIController;
 	public QTEventBase CurrentEvent;
 	public string LastInputDevice;
+	public IDisposable InputReader;
+
+
+	public bool IsListeningForInput;
 
 	[ContextMenu("Execute QTE")]
 	public async void DebugQTEExecution()
@@ -36,10 +40,11 @@ public class QTEManager : MonoBehaviour
 	/// with the input device name for validating if correct inputs were pressed or not. </returns>
 	public async UniTask<List<string>> CheckForQuickTimeInput(QTEDataSO QTEData)
 	{
+		IsListeningForInput = true;
 		int buttonsPressed = 0;
 		List<string> quickTimeInputs = new List<string>();
 		string quickTimeInput = string.Empty;
-		var inputReader = InputSystem.onAnyButtonPress.Call(quickTimePress =>
+		InputReader = InputSystem.onAnyButtonPress.Call(quickTimePress =>
 		{
 			if (!QTEData.ControlPath.Contains($"<{quickTimePress.device.name}>/{quickTimePress.name}"))
 			{
@@ -57,15 +62,16 @@ public class QTEManager : MonoBehaviour
 		Debug.Log($"Listening for QTE Input");
 		float quickTimer = 0f;
 		float concurrentInputTimer = 0f;
-		while (quickTimer <= QTEData.EventTimer && buttonsPressed < QTEData.ControlPath.Count)
+		var startTimer = Time.unscaledTime;
+		while (quickTimer < QTEData.EventTimer && buttonsPressed < QTEData.ControlPath.Count)
 		{
 			if (QTEData.ConcurrentInputBuffer > 0f && buttonsPressed > 0) concurrentInputTimer += Time.deltaTime;
-
 			if (concurrentInputTimer > QTEData.ConcurrentInputBuffer)
 			{
 				if (buttonsPressed < QTEData.ControlPath.Count)
 				{
-					inputReader.Dispose();
+					InputReader.Dispose();
+					IsListeningForInput = false;
 					Debug.Log($"<color=#75ff9a>Buffer time elapse, QTE failing</color>");
 					//TestUIController.QTEInputReceived = true;
 					return quickTimeInputs;
@@ -75,16 +81,28 @@ public class QTEManager : MonoBehaviour
 				buttonsPressed = 0;
 			}
 
-			quickTimer += Time.deltaTime;
+			quickTimer = Time.unscaledTime - startTimer;
+			//quickTimer += (float) stopwatch.ElapsedMilliseconds / 1000f;
+			//Debug.Log($"Event timer : {quickTimer}");
 			await UniTask.Yield();
 			await UniTask.NextFrame();
 		}
 
+		IsListeningForInput = false;
+
 		//TestUIController.QTEInputReceived = true;
 
-		Debug.Log($"QTE Input found, cross-checking input");
-		inputReader.Dispose();
+		Debug.Log($"QTE Input time window passed, cross-checking input");
+		InputReader.Dispose();
 
 		return quickTimeInputs;
+	}
+
+	public void TerminateCurrentQTE()
+	{
+		Debug.Log($"Terminating this {CurrentEvent.name} event");
+		InputReader.Dispose();
+		IsListeningForInput = false;
+		CurrentEvent.EndEvent();
 	}
 }

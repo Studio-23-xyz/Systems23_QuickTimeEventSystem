@@ -29,7 +29,7 @@ public class QTEDataSO : ScriptableObject
 	/// A list of expected controls that the player must press in order to succeed in the QTE.
 	/// </summary>
 	[InputControl(layout = "Button")]
-	public List<string> ControlPath;
+	public List<string> ControlPath = new List<string>();
 
 	/// <summary>
 	/// In case this QTE expected multiple player inputs in very quick succession, we set a buffer timer within which the player must press rest of the buttons

@@ -705,6 +705,7 @@ MonoBehaviour:
   TestUIController: {fileID: 1275541289}
   CurrentEvent: {fileID: 11400000, guid: 5f4cf25881783c041b7b50e74606670f, type: 2}
   LastInputDevice: 
+  IsListeningForInput: 0
 --- !u!4 &1275541288
 Transform:
   m_ObjectHideFlags: 0
