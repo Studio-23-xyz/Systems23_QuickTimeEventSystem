@@ -38,7 +38,7 @@ public class QTE_TimedButtonPress : QTEventBase
 				Debug.Log($"<color=#ff2626>QTE failed due to input mismatch on {quickTimeInput}.</color>");
 				OnQTEFailure?.Invoke();
 				EndEvent();
-				break;
+				return;
 			}
 		}
 

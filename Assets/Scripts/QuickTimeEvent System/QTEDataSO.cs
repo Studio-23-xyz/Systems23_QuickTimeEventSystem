@@ -31,6 +31,8 @@ public class QTEDataSO : ScriptableObject
 	[InputControl(layout = "Button")]
 	public List<string> ControlPath = new List<string>();
 
+	public List<InputActionReference> ActionPath = new List<InputActionReference>();
+
 	/// <summary>
 	/// In case this QTE expected multiple player inputs in very quick succession, we set a buffer timer within which the player must press rest of the buttons
 	/// after the first button press.

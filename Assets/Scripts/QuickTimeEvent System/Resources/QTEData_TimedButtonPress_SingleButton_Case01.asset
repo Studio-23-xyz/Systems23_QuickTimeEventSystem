@@ -18,4 +18,5 @@ MonoBehaviour:
   EventTimer: 4
   ControlPath:
   - <Keyboard>/w
+  ActionPath: []
   ConcurrentInputBuffer: 0

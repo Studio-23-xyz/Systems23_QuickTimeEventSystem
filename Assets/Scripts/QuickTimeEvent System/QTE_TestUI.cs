@@ -58,7 +58,8 @@ public class QTE_TestUI : MonoBehaviour
 	{
 		foreach (var controlPath in qtData.ControlPath)
 		{
-			EventPromptHint.text += $"< {controlPath} >";
+			var qteKey = controlPath.Replace($"Keyboard", "");
+			EventPromptHint.text += $"< {qteKey} >";
 		}
 	}
 
@@ -67,5 +68,10 @@ public class QTE_TestUI : MonoBehaviour
 		await UniTask.Delay(TimeSpan.FromSeconds(2f));
 
 		EventPromptHint.text = $"<color=#03bafc>QTE Completed!</color>";
+
+		await UniTask.Delay(TimeSpan.FromSeconds(3f));
+		EventPromptHint.text = $"";
+		EventNameHeader.text = $"";
+		EventDescriptionHeader.text = $"";
 	}
 }

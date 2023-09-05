@@ -18,4 +18,6 @@ MonoBehaviour:
   EventTimer: 4
   ControlPath:
   - <Keyboard>/w
+  ActionPath:
+  - {fileID: 3803808812296499747, guid: 88b4d8144818a0d42a4a507cffb49681, type: 3}
   ConcurrentInputBuffer: 0
