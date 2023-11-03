@@ -7,6 +7,24 @@
       "dependencies": {},
       "hash": "8a8fa5a9659a6d63f196391c71e06c4286c8acd7"
     },
+    "com.littlebigfun.addressable-importer": {
+      "version": "https://github.com/favoyang/unity-addressable-importer.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.addressables": "1.1.5"
+      },
+      "hash": "dfea8700d057b3c7074c162249ee523c0887f7e4"
+    },
+    "com.unity.addressables": {
+      "version": "1.1.5",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.scriptablebuildpipeline": "1.5.1"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.collab-proxy": {
       "version": "1.17.2",
       "depth": 0,
@@ -55,6 +73,13 @@
       "dependencies": {
         "com.unity.modules.uielements": "1.0.0"
       },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.scriptablebuildpipeline": {
+      "version": "1.5.1",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.services.core": {
@@ -106,6 +131,13 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "com.yasirkula.runtimeinspector": {
+      "version": "https://github.com/yasirkula/UnityRuntimeInspector.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "6e6dcbf2f4e6fc3d38b5462351bde30ab9a6196e"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

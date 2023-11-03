@@ -1,5 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
+using Studio23.SS2.QTESystem.Core;
+using Studio23.SS2.QTESystem.Data;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Timed Button Press QTE", menuName = "Systems-23/Quick Time Event System/Quick Time Events", order = 0)]

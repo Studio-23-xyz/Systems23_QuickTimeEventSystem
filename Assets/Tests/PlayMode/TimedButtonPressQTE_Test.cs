@@ -1,4 +1,6 @@
 using NUnit.Framework;
+using Studio23.SS2.QTESystem.Core;
+using Studio23.SS2.QTESystem.Data;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -53,7 +55,7 @@ public class TimedButtonPressQTE_Test
 
 		_qtManager.ExecuteEvent(_timedButtonPressEvent);
 		yield return new WaitForSeconds(_qtDataSO.EventStartDelay);
-		
+
 		Assert.IsTrue(_qtManager.IsListeningForInput);
 		_qtManager.TerminateCurrentQTE();
 
